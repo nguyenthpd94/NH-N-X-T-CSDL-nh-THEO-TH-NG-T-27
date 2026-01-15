@@ -150,11 +150,12 @@ YÊU CẦU SỐ LƯỢNG:
 ### MỨC ĐIỂM <5
 - ...
 """
-
-        try:
-        model = genai.GenerativeModel("models/gemini-pro")
-        response = model.generate_content([prompt] + media_files)
-
+try:
+    model = genai.GenerativeModel("models/gemini-pro")
+    response = model.generate_content(prompt)
+except Exception as e:
+    st.error(f"Lỗi Gemini: {e}")
+    st.stop()
             pools = extract_comments_by_score(response.text)
 
             def assign_comment(row):
