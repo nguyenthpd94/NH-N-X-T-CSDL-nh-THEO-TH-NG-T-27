@@ -182,7 +182,7 @@ st.download_button(
                 "NhanXet_TheoDiem_TT27.xlsx",
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
-except Exception as e:
-            st.error(f"Lỗi: {e}")
+                except Exception as e:
+                st.error(f"Lỗi: {e}")
 
 st.markdown("<div style='text-align:center;color:#888;margin-top:40px;'>© 2026 - Thầy Nguyên</div>", unsafe_allow_html=True)
