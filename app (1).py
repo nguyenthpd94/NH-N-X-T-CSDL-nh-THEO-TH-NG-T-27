@@ -152,8 +152,9 @@ YÊU CẦU SỐ LƯỢNG:
 """
 
         try:
-            model = genai.GenerativeModel("gemini-1.5-flash")
-            response = model.generate_content([prompt] + media_files)
+            try:
+    model = genai.GenerativeModel("models/gemini-pro")
+    response = model.generate_content([prompt] + media_files)
 
             pools = extract_comments_by_score(response.text)
 
