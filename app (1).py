@@ -158,7 +158,7 @@ except Exception as e:
     st.stop()
 pools = extract_comments_by_score(response.text)
 
-            def assign_comment(row):
+def assign_comment(row):
                 lvl = row["__ScoreLevel__"]
                 if lvl in pools and pools[lvl]:
                     return pools[lvl].pop(0)
