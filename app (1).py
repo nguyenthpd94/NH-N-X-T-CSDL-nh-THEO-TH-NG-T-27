@@ -156,7 +156,7 @@ try:
 except Exception as e:
     st.error(f"Lỗi Gemini: {e}")
     st.stop()
-            pools = extract_comments_by_score(response.text)
+pools = extract_comments_by_score(response.text)
 
             def assign_comment(row):
                 lvl = row["__ScoreLevel__"]
