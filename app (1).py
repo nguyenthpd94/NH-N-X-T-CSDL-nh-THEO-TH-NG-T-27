@@ -164,16 +164,16 @@ def assign_comment(row):
                     return pools[lvl].pop(0)
                 return "Hoàn thành nhiệm vụ học tập theo yêu cầu."
 
-            df[col_new] = df.apply(assign_comment, axis=1)
-            df.drop(columns="__ScoreLevel__", inplace=True)
+df[col_new] = df.apply(assign_comment, axis=1)
+df.drop(columns="__ScoreLevel__", inplace=True)
 
-            output = io.BytesIO()
-            with pd.ExcelWriter(output, engine="openpyxl") as writer:
-                df.to_excel(writer, index=False, sheet_name="Data")
-                ws = writer.sheets["Data"]
-                col_idx = df.columns.get_loc(col_new) + 1
-                ws.column_dimensions[get_column_letter(col_idx)].width = 60
-            output.seek(0)
+output = io.BytesIO()
+with pd.ExcelWriter(output, engine="openpyxl") as writer:
+df.to_excel(writer, index=False, sheet_name="Data")
+ws = writer.sheets["Data"]
+col_idx = df.columns.get_loc(col_new) + 1
+ws.column_dimensions[get_column_letter(col_idx)].width = 60
+output.seek(0)
 
             st.success("✅ Hoàn thành!")
             st.download_button(
