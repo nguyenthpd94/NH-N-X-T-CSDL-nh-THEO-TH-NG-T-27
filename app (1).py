@@ -175,15 +175,14 @@ with pd.ExcelWriter(output, engine="openpyxl") as writer:
                 ws.column_dimensions[get_column_letter(col_idx)].width = 60
                 output.seek(0)
 
-            st.success("✅ Hoàn thành!")
+st.success("✅ Hoàn thành!")
             st.download_button(
                 "⬇️ Tải file Excel kết quả",
                 output,
                 "NhanXet_TheoDiem_TT27.xlsx",
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            )
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
-        except Exception as e:
+except Exception as e:
             st.error(f"Lỗi: {e}")
 
 st.markdown("<div style='text-align:center;color:#888;margin-top:40px;'>© 2026 - Thầy Nguyên</div>", unsafe_allow_html=True)
